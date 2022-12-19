@@ -1,5 +1,10 @@
 FROM python:3.10
 WORKDIR /app
 COPY . /app/
-RUN pip install -r requirements.txt
-CMD ["python", "bot.py"]
+
+COPY requirements.txt .
+RUN pip3 install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+CMD ["bash", "start.sh"]
